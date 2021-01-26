@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import { React } from "react";
 import './App.css';
+import MoviePartPicker from './MoviePartPicker/MoviePartPicker';
 
 function App() {
   return (
     <div className="App">
-      <h1>Initial setup</h1>
+      <MoviePartPicker/>
     </div>
   );
 }
