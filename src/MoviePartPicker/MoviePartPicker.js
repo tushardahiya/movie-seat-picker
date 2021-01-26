@@ -16,8 +16,9 @@ class MoviePartPicker extends Component {
 
     render(){
         return (
-            <div>
-                <div>
+            
+            <div className="body">
+                <div className="movie-container">
                     <label>Pick A Movie : </label>
                     <select id="movie">
                         <option value={this.state.prices.avengers}>Avengers: Endgame :({this.state.prices.avengers}{'\u20B9'})</option>
@@ -33,7 +34,7 @@ class MoviePartPicker extends Component {
                         <small>N/A</small>
                     </li>
                     <li>
-                        <div className="seat"></div>
+                        <div className="seat selected"></div>
                         <small>Selected</small>
                     </li>
                     <li>
@@ -111,8 +112,9 @@ class MoviePartPicker extends Component {
                     </div>
                 </div>
 
-                <p> You have selected {this.state.selectedSeat} Seats for the price of {this.state.totalPrice} {'\u20B9'}</p>
+                <p className="text">You have selected <span>{this.state.selectedSeat}</span>Seats for the price of<span>{this.state.totalPrice}</span> {'\u20B9'}</p>
             </div>
+            
         );
     }
 }
