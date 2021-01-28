@@ -24,6 +24,23 @@ class MoviePartPicker extends Component {
         ticketPrice:100,
     }
 
+    componentDidMount() {
+        const userData =JSON.parse(localStorage.getItem('data'));
+        if(localStorage.getItem('data')) {
+            this.setState({...userData});
+        }
+    }
+
+
+
+    componentWillUpdate (nextProps , nextState ) {
+        if(this.state !==nextState) {
+            localStorage.setItem('data' , JSON.stringify(nextState));
+        }
+        
+    }
+
+
     onMovieSelectHandler = (e) => {
         const updatedSelectedMovie = e.target.value;
         const updatedTicketPrice = this.state.moviePrices[updatedSelectedMovie];
@@ -54,7 +71,7 @@ class MoviePartPicker extends Component {
                 seats:updatedSeats,
                 selectedSeats:updatedSelectedSeats,
                 totalPrice : updatedTotalPrice
-        } , () => { console.log(this.state)});
+        });
     }
 
 
